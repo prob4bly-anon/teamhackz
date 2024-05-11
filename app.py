@@ -14,5 +14,5 @@ app.register_blueprint(login_bp)
 app.register_blueprint(dash_bp)
 app.register_blueprint(routes_bp)
 
-app.secret_key = 'your_secret_key'
+app.secret_key = 'hackz6966'
 
