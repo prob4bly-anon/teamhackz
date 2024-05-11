@@ -16,3 +16,4 @@ app.register_blueprint(routes_bp)
 
 app.secret_key = 'hackz6966'
 
+app.run()
