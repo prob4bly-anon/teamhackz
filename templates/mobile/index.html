@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Team Hackz</title>
+      <style>
+         body {
+         background: linear-gradient(to right, #13171c, #212529);
+         color: #ffffff;
+         margin: 0; /* Reset default margin */
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+         .container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 15px;
+         }
+         #space-gap {
+         color: #fff;
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         padding-top: 30px;
+         clear: both;
+         }
+         .brand {
+         display: flex;
+         align-items: center;
+         }
+         .brand-text {
+         font-size: 18px;
+         margin-left: 10px;
+         }
+         .hamburger-menu {
+         width: 30px;
+         height: 20px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         cursor: pointer;
+         z-index: 5;
+         }
+         .bar {
+         width: 100%;
+         height: 3px;
+         background-color: white;
+         transition: transform 0.3s, opacity 0.3s;
+         opacity: 0.9;
+         }
+         .nav-menu {
+         position: fixed;
+         top: 0;
+         right: 0;
+         width: 100%;
+         height: 100%;
+         background-color: #8B4513; /* Brown color without transparency */
+         z-index: 4; /* Ensure it appears above other content */
+         transform: translateX(100%);
+         transition: transform 0.3s;
+         }
+         .nav-menu ul {
+         list-style-type: none;
+         padding: 0;
+         margin: 0;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         height: 100%;
+         }
+         .nav-menu li {
+         padding: 15px;
+         text-align: center;
+         }
+         .nav-menu a {
+         color: #fff;
+         text-decoration: none;
+         font-size: 20px;
+         }
+         .hero-section {
+         padding: 10px 15px;
+         }
+         .zero-section {
+         padding: 10px 15px;
+         }
+         .header-text p {  
+         margin-left: 15px;  
+         font-family: Calibri;
+         font-weight: bold;
+         font-size: 18px;
+         }
+         .header-text-2 {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .description-2 {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .header-text-2 p,
+         .description-2 p {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .content-container {
+         display: flex;
+         align-items: flex-start; /* Align items at the start of the container */
+         }
+         .description {
+         font-family: Verdana, Geneva, Tahoma, sans-serif; 
+         opacity: 0.9;
+         float: left;
+         width: 100%; /* Adjust width as needed */
+         padding: 20px;
+         box-sizing: border-box; /* Include padding in width calculation */
+         }
+         .description-2{
+         font-family: Verdana, Geneva, Tahoma, sans-serif; 
+         opacity: 0.9;
+         float: left;
+         width: 100%; /* Adjust width as needed */
+         padding: 20px;
+         box-sizing: border-box;
+         text-align: center; /* Include padding in width calculation */
+         }
+         .image {
+         height: auto;
+         width: 90%; /* Adjust width as needed */
+         text-align: center;
+         padding: 15px;
+         border-radius: 10px; /* Add border-radius for smoother corners */
+         }
+         .image img {
+         width: 100%;
+         height: auto;
+         max-width: 400px;
+         border-radius: 10px;
+         box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); /* Thin glowing effect */
+         }
+         .buttons {
+         padding: 18px 32px;
+         display: flex;
+         justify-content: left;
+         width: 295px;
+         }
+         .button {
+         cursor: pointer;
+         border: none;
+         border-radius: 6px;
+         font-size: 16px;
+         padding: 10px 20px;
+         margin-right: 10px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+         }
+         .button-primary {
+         background-color: orange;
+         color: black;
+         }
+         .button-primary:hover {
+         background-color: yellow;
+         box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5); /* Add glow effect on hover */
+         }
+         html {
+         scroll-behavior: smooth;
+         }
+         .button-secondary {
+         background-color: transparent;
+         color: orange;
+         border: 2px solid orange;
+         }
+         .button-secondary:hover {
+         background-color: rgba(255, 165, 0, 0.2);
+         color: yellow;
+         box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.5); /* Add glow effect on hover */
+         }
+         .header-text-2 p {  
+         margin-left: 15px;
+         font-family: Calibri;
+         font-weight: bold;
+         font-size: 36px;
+         text-align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="brand">
+            <svg fill="#e1e10e" width="22" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+               <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+            </svg>
+            <span class="brand-text">TEAMHACKZ.ORG</span>
+         </div>
+         <nav class="nav-menu">
+            <ul>
+               <li><a href="#">Home</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#services-section">Services</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </nav>
+         <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+         </div>
+      </div>
+      <div class="hero-section">
+         <div class="header-text">
+            <p>Team Hackz: Elevating the Art of Coding, Hacking, GFX & VFX. </p>
+         </div>
+         <div class="content-container">
+            <div class="description">
+               Team Hackz: Elevating Ethical Hacking, Coding Mastery, and Creative Design.<br><br>
+               Join us on a transformative journey into cybersecurity, software development, and digital artistry.<br><br>
+               Discover the intricacies of ethical hacking; integrity and responsibility paramount. Explore coding, mastering languages, and algorithms for innovative solutions.<br><br>
+               Delve into creative design; imagination meets technical skill, crafting visually stunning designs.<br><br>
+               Our community thrives on collaboration, offering affordable services and tools for digital success.<br><br>
+               Let's harness technology and creativity for a positive global impact.
+            </div>
+         </div>
+         <div class="image">
+            <img src="https://i.ibb.co/Sn18G7S/hackz-blue-png.jpg" alt="Team Hackz Image">
+         </div>
+         <div class="buttons">
+            <button class="button button-primary" id="contact-button">Discord</button>
+            <a href="/dashboard">
+            <button class="button button-secondary" id="dashboard-button">Dashboard</button> </a>
+         </div>
+      </div>
+      <div id="space-gap"></div>
+      <div id="space-gap"></div>
+      <div class="zero-section">
+         <div id = "services-section">
+            <div class="header-text-2">
+               <p>Our Services</p>
+            </div>
+            <div class="content-container">
+               <div class="description-2">
+                  <p>
+                     Some Services that we provide.
+                  </p>
+               </div>
+            </div>
+            <style>
+               .flex-container {
+               width: 100%;
+               height: auto;
+               border: solid rgba(41, 6, 6, 0.478);
+               display: flex;
+               justify-content: center;
+               flex-direction: column;
+               }
+               .flex-item {
+               /* Reduce the margin to prevent overflow */
+               width: 95%; /* Set flex-basis to adjust for margin */
+               height: 190px;
+               margin-right: 15px; 
+               background-color: #212529;
+               border: solid black;
+               margin: 10px;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               text-align: center;
+               color: white;
+               border-radius: 10px;
+               overflow: hidden;
+               transition: transform 0.3s ease;
+               box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.5);
+               max-width: none;
+               }
+               .flex-item p{
+               font-family:Verdana, Geneva, Tahoma, sans-serif;
+               opacity: 0.9;
+               }
+               .flex-item h2{
+               font-family: Calibri;
+               padding-bottom: 15px;
+               }
+               .flex-item:hover {
+               transform: scale(1.03); /* Scaling up on hover */
+               box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8);
+               }
+               .flex-item h2,
+               .flex-item p {
+               margin: 0;
+               }
+               .join-us{
+               border: solid rgba(41, 6, 6, 0.478);
+               background-color: #1a2026;
+               width: 100%;
+               height: 200px;
+               box-shadow: 0 0 10px 2px rgba(98, 98, 99, 0.8); 
+               border-radius: 8px;
+               }
+               .join-us h2{
+               text-align: center;
+               font-size: 36px;
+               font-family: Calibri;
+               padding-bottom: 5px;
+               }
+               .join-us a{
+               color : white;
+               opacity: 1;
+               }
+               .join-us p{
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
+               text-align: center;
+               }
+            </style>
+            <div class="flex-container">
+               <div class="flex-item">
+                  <h2>Ethical Hacking</h2>
+                  <p>Learn the skills needed to secure networks and protect against cyber threats.</p>
+               </div>
+               <div class="flex-item">
+                  <h2>GFX Designing</h2>
+                  <p>Create stunning graphics and visual designs for various purposes.</p>
+               </div>
+               <div class="flex-item">
+                  <h2>Bot Developing/Software Dev</h2>
+                  <p>Build automated bots and software applications to streamline processes.</p>
+               </div>
+               <div class="flex-item">
+                  <h2>Web Development</h2>
+                  <p>Design and develop websites with the latest technologies and frameworks.</p>
+               </div>
+               <div class="flex-item">
+                  <h2>Game Hacking</h2>
+                  <p>Explore the world of game modification and customization.</p>
+               </div>
+               <div class="flex-item">
+                  <h2>Premium Tools</h2>
+                  <p>Access a range of premium software tools for various purposes.</p>
+               </div>
+            </div>
+         </div>
+         <div id="space-gap"></div>
+         <style>
+            .our-team p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color: #ffffff; /* White text color */
+            }
+            .our-team {
+            border: solid rgba(41, 6, 6, 0.478);
+            background-color: #1a2026; /* Reverted to original color */
+            width: 100%;
+            height: auto;
+            }
+            .our-team h2 {
+            text-align: center;
+            font-size: 36px;
+            font-family: Calibri;
+            padding-bottom: 3px;
+            color: #ffffff; /* White text color */
+            }
+            .team-flexbox {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            }
+            .team-members {
+            width: 90%;   
+            height: auto;
+            border: solid black 2px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden; /* Hide overflow to prevent badge overflow */
+            border-radius: 10px; /* Rounded corners for member card */
+            box-shadow: 0 0 10px 2px rgba(82, 82, 79, 0.8);
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth shadow transition */
+            }
+            .team-members:hover {
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); 
+            transform: translateY(-10px);
+            }
+            .team-members img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 10px; /* Rounded corners for image */
+            border-top-right-radius: 10px;
+            }
+            .member-details {
+            padding: 20px;
+            text-align: center;
+            }
+            .member-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff; /* White text color */
+            }
+            .badge {
+            background-color: #212529 ; /* Blue badge */
+            color: white; /* White text */
+            padding: 6px 12px; /* Padding */
+            border-radius: 20px; /* Rounded shape */
+            font-size: 12px;
+            margin-bottom: 5px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); 
+            }
+            .social-icons {
+            margin-top: 15px;
+            position: absolute;
+            bottom: 20px; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            }
+            .social-icons a {
+            color: #ffffff; /* White icon color */
+            font-size: 18px;
+            margin: 0 8px;
+            transition: color 0.3s ease-in-out; /* Smooth transition */
+            }
+            .social-icons a:hover {
+            color: #007bff; /* Change color on hover */
+            }
+         </style>
+         <div class="our-team">
+            <h2> Our Team</h2>
+            <p> Please Checkout our Hardworking Team. </p>
+            <div class="team-flexbox">
+               <div class="team-members">
+                  <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*gvNJefrW_2FTvRyjfyHHKQ.jpeg">
+                  <div class="member-details">
+                     <div class="member-name">Rubin</div>
+                     <div class="badge">Founder</div>
+                     <div class="badge">Developer</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                  </div>
+               </div>
+               <div class="team-members">
+                  <img src="https://cdn-sd.pages.dev/img/sahil.png">
+                  <div class="member-details">
+                     <div class="member-name">Mizo</div>
+                     <div class="badge">Admin</div>
+                     <div class="badge">Manager</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+               </div>
+               <div class="team-members">
+                  <img src="https://cdn-sd.pages.dev/img/sahil.png">
+                  <div class="member-details">
+                     <div class="member-name">NoBody</div>
+                     <div class="badge">NoboDY</div>
+                     <div class="badge">NobOdy</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+               </div>
+               <!-- Add more team members here -->
+            </div>
+            <P> You can also join our team. Join our Discord server and apply for staff program !</P>
+         </div>
+         <div id="space-gap"></div>
+         <div class="join-us">
+            <h2>Join us</h2>
+            <p> We are the best coding & hacking community. We've a <a href="https://discord.gg/hackz"> Discord server! </a>Join there and be a part of our community now! </p>
+         </div>
+         <div id="space-gap"></div>
+         <style>
+            /* Footer styles */
+            .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border-radius: 9px;
+            }
+            .footer p {
+            margin: 0;
+            }
+            .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out; /* Smooth transition for link color */
+            }
+            .footer a:hover {
+            color: #ffc107; /* Change color on hover */
+            }
+            /* Heart animation */
+            .heart {  
+            display: inline-block;
+            animation: beat 1s infinite;
+            transform-origin: center;
+            }
+            @keyframes beat {
+            0% { transform: scale(1); }     
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+            }
+         </style>
+         </head>
+         <body>
+            <footer class="footer">
+               <p>&copy; 2024 Team Hackz All rights reserved. Made with <span class="heart">&hearts;</span> by <strong>Rubin</strong>.</p>
+            </footer>
+      </div>
+      <!-- ZERO SECTION DIV-->
+      <script>
+         // Function to toggle the menu
+         function toggleMenu() {
+           var menu = document.querySelector('.nav-menu');
+           menu.style.transform = menu.style.transform === 'translateX(0%)' ? 'translateX(100%)' : 'translateX(0%)';
+         }
+         
+         // Function to close the menu when a link is clicked
+         function closeMenu() {
+           var menu = document.querySelector('.nav-menu');
+           menu.style.transform = 'translateX(100%)';
+         }
+         
+         // Add event listeners to each menu item
+         var menuItems = document.querySelectorAll('.nav-menu a');
+         menuItems.forEach(function(item) {
+           item.addEventListener('click', closeMenu);
+         });
+      </script>
+   </body>
+</html>

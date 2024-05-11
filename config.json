@@ -1,0 +1,7 @@
+{
+    "Discord": {
+        "client_id": "269930857341517824",
+        "client_secret": "qDooVcmW7VWtitqK4K0ARRRO9RNW0xwA",
+        "redirect_uri": "http://127.0.0.1:8080/callback"
+    }
+}

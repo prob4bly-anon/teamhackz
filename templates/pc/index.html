@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+  
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <title>Team Hackz</title>
+ 
+      <style>
+         body {
+         background: linear-gradient(to right, #13171c, #212529);
+         color: #ffffff;
+         margin: 0; /* Reset default margin */
+         }
+         #space-gap {
+         color: #fff;
+         position: relative;
+         display: flex;d
+         flex-direction: column;
+         padding-top: 30px;
+         clear: both;
+         }
+         .navbar {
+         display: flex;
+         align-items: center; /* Vertically center items */
+         justify-content: space-between; /* Distribute items evenly along the navbar */
+         padding: 10px 15px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif; /* Moved font-family to .navbar */
+         }
+         .logo {
+         display: flex;
+         align-items: center;
+         margin-left: 10px;
+         }
+         #logo-text {
+         color: #ffffff; /* Changed text color to white */
+         margin-left: 10px; /* Added margin to separate logo and text */
+         }
+         .nav-links {
+         opacity: 0.9;
+         font-size: 1.1rem;
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center; /* Center the nav links horizontally */
+         }
+         .nav-links li {
+         margin-right: 55px;
+         }
+         .nav-links li:last-child {
+         margin-right: 0;
+         }
+         .nav-links li a {
+         color: #fff;
+         text-decoration: none;
+         }
+         .nav-links li a:hover{
+         color:#007bff; 
+         }
+         #dash-link a {
+         color: #fff; /* Set default text color */
+         text-decoration: none; /* Remove default underline */
+         transition: color 0.3s; /* Smooth transition for color */
+         }
+         #dash-link a:hover {
+         color: yellow; /* Change text color to yellow on hover */
+         text-decoration: underline; /* Add underline on hover */
+         animation: wave 1s infinite; /* Apply wavy animation */
+         }
+         @keyframes wave {
+         0% { text-shadow: 0 0 1px green; }
+         50% { text-shadow: 0 0 10px yellow; }
+         100% { text-shadow: 0 0 1px blue; }
+         }
+         .hero-section {
+         padding: 10px 15px;
+         margin-left: 25px; /* Adjusted padding */
+         }
+         .zero-section {
+         padding: 10px 15px;
+         margin-left: 25px; /* Adjusted padding */
+         }
+         .header-text p {  
+         margin-left: 15px;  
+         font-family: Calibri;
+         font-weight: bold;
+         font-size: 32px;
+         }
+         .header-text-2 {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .description-2 {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .header-text-2 p,
+         .description-2 p {
+         margin: 0; /* Remove margin */
+         padding: 0; /* Remove padding */
+         }
+         .content-container {
+         display: flex;
+         align-items: flex-start; /* Align items at the start of the container */
+         }
+         .description {
+         font-family: Verdana, Geneva, Tahoma, sans-serif; 
+         opacity: 0.9;
+         float: left;
+         width: 35%; /* Adjust width as needed */
+         padding: 20px;
+         box-sizing: border-box; /* Include padding in width calculation */
+         }
+         .description-2{
+         font-family: Verdana, Geneva, Tahoma, sans-serif; 
+         opacity: 0.9;
+         float: left;
+         width: 100%; /* Adjust width as needed */
+         padding: 20px;
+         box-sizing: border-box;
+         text-align: center; /* Include padding in width calculation */
+         }
+         .image {
+         width: 50%; /* Adjust width as needed */
+         text-align: center;
+         padding: 20px;
+         border-radius: 10px; /* Add border-radius for smoother corners */
+         }
+         .image img {
+         width: 100%;
+         height: auto;
+         max-width: 400px;
+         border-radius: 10px;
+         box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); /* Thin glowing effect */
+         }
+         .buttons {
+         padding: 18px 32px;
+         display: flex;
+         justify-content: left;
+         width: 295px;
+         }
+         .button {
+         cursor: pointer;
+         border: none;
+         border-radius: 6px;
+         font-size: 16px;
+         padding: 10px 20px;
+         margin-right: 10px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+         }
+         .button-primary {
+         background-color: orange;
+         color: black;
+         }
+         .button-primary:hover {
+         background-color: yellow;
+         box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5); /* Add glow effect on hover */
+         }
+         .button-secondary {
+         background-color: transparent;
+         color: orange;
+         border: 2px solid orange;
+         }
+         .button-secondary:hover {
+         background-color: rgba(255, 165, 0, 0.2);
+         color: yellow;
+         box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.5); /* Add glow effect on hover */
+         }
+         .header-text-2 p {  
+         margin-left: 15px;
+         font-family: Calibri;
+         font-weight: bold;
+         font-size: 36px;
+         text-align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar">
+         <div class="logo">
+            <!-- Embed the downloaded SVG image here -->
+            <svg fill="#e1e10e" width="22" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+               <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+            </svg>
+            <!-- End of SVG image -->
+            <div id="logo-text">TEAMHACKZ.ORG</div>
+         </div>
+         <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">Contact</a></li>
+         </ul>
+         <div id="dash-link">
+            <ul class="nav-links">
+               <li><a href="/dashboard"">Dashboard</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div id="space-gap"></div>
+      <div class="hero-section">
+        
+         <div class="header-text">
+            <p>Team Hackz: Elevating the Art of Coding, Hacking, GFX & VFX. </p>
+         </div>
+         <div class="content-container">
+            <div class="description">
+               Team Hackz: Elevating Ethical Hacking, Coding Mastery, and Creative Design.<br><br>
+               Join us on a transformative journey into cybersecurity, software development, and digital artistry.<br><br>
+               Discover the intricacies of ethical hacking; integrity and responsibility paramount. Explore coding, mastering languages, and algorithms for innovative solutions.<br><br>
+               Delve into creative design; imagination meets technical skill, crafting visually stunning designs.<br><br>
+               Our community thrives on collaboration, offering affordable services and tools for digital success.<br><br>
+               Let's harness technology and creativity for a positive global impact.
+            </div>
+            <div class="image">
+               <img src="https://i.ibb.co/Sn18G7S/hackz-blue-png.jpg" alt="Team Hackz Image">
+            </div>
+         </div>
+         <div class="buttons">
+            <button class="button button-primary" id="contact-button">Discord</button>
+            <a href = '/dashboard'>
+            <button class="button button-secondary" id="dashboard-button" >Dashboard</button> </a>
+         </div>
+         
+      </div>
+      <div id="space-gap"></div>
+      <div id="space-gap"></div>
+      <div class="zero-section">
+      
+         <div class="header-text-2">
+            <p>Our Services</p>
+         </div>
+         <div class="content-container">
+            <div class="description-2">
+               <p>
+                  Some Services that we provide.
+               </p>
+            </div>
+         </div>
+         <style>
+            .flex-container {
+            border: solid rgba(41, 6, 6, 0.478);
+            display: flex;
+            flex-wrap: wrap; /* Wrap items onto multiple lines */
+            justify-content: center;
+            }
+            .flex-item {
+            width: calc(33.33% - 20px); /* Set flex-basis to 1/3 of the container width, minus margin */
+            height: 200px;
+            background-color: #212529;
+            border: solid black;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border-radius: 10px; /* Adding border-radius */
+            overflow: hidden; /* Ensuring the hover effect doesn't overflow */
+            transition: transform 0.3s ease; /* Adding transition for hover effect */
+            box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.5); 
+            }
+            .flex-item p{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            opacity: 0.9;
+            }
+            .flex-item h2{
+            font-family: Calibri;
+            padding-bottom: 5px;
+            }
+            .flex-item:hover {
+            transform: scale(1.03); /* Scaling up on hover */
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8);
+            }
+            .flex-item h2,
+            .flex-item p {
+            margin: 0;
+            }
+            .join-us{
+            border: solid rgba(41, 6, 6, 0.478);
+            background-color: #1a2026;
+            width: 100%;
+            height: 200px;
+            box-shadow: 0 0 10px 2px rgba(98, 98, 99, 0.8); 
+            }
+            .join-us h2{
+            text-align: center;
+            font-size: 36px;
+            font-family: Calibri;
+            padding-bottom: 5px;
+            }
+            .join-us a{
+            color : white;
+            opacity: 1;
+            }
+            .join-us p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            }
+         </style>
+         <div class="flex-container">
+            <div class="flex-item">
+               <h2>Ethical Hacking</h2>
+               <p>Learn the skills needed to secure networks and protect against cyber threats.</p>
+            </div>
+            <div class="flex-item">
+               <h2>GFX Designing</h2>
+               <p>Create stunning graphics and visual designs for various purposes.</p>
+            </div>
+            <div class="flex-item">
+               <h2>Bot Developing/Software Dev</h2>
+               <p>Build automated bots and software applications to streamline processes.</p>
+            </div>
+            <div class="flex-item">
+               <h2>Web Development</h2>
+               <p>Design and develop websites with the latest technologies and frameworks.</p>
+            </div>
+            <div class="flex-item">
+               <h2>Game Hacking</h2>
+               <p>Explore the world of game modification and customization.</p>
+            </div>
+            <div class="flex-item">
+               <h2>Premium Tools</h2>
+               <p>Access a range of premium software tools for various purposes.</p>
+            </div>
+         </div>
+         <div id="space-gap"></div>
+         <style>
+            .our-team p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color: #ffffff; /* White text color */
+            }
+            .our-team {
+            border: solid rgba(41, 6, 6, 0.478);
+            background-color: #1a2026; /* Reverted to original color */
+            width: 100%;
+            height: auto;
+            }
+            .our-team h2 {
+            text-align: center;
+            font-size: 36px;
+            font-family: Calibri;
+            padding-bottom: 3px;
+            color: #ffffff; /* White text color */
+            }
+            .team-flexbox {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            }
+            .team-members {
+            width: 250px;   
+            height: 400px;
+            border: solid black 2px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden; /* Hide overflow to prevent badge overflow */
+            border-radius: 10px; /* Rounded corners for member card */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth shadow transition */
+            }
+            .team-members:hover {
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); 
+            transform: translateY(-10px);
+            }
+            .team-members img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 10px; /* Rounded corners for image */
+            border-top-right-radius: 10px;
+            }
+            .member-details {
+            padding: 20px;
+            text-align: center;
+            }
+            .member-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff; /* White text color */
+            }
+            .badge {
+            background-color: #212529 ; /* Blue badge */
+            color: white; /* White text */
+            padding: 6px 12px; /* Padding */
+            border-radius: 20px; /* Rounded shape */
+            font-size: 12px;
+            margin-bottom: 5px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.8); 
+            }
+            .social-icons {
+            margin-top: 15px;
+            position: absolute;
+            bottom: 20px; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            }
+            .social-icons a {
+            color: #ffffff; /* White icon color */
+            font-size: 18px;
+            margin: 0 8px;
+            transition: color 0.3s ease-in-out; /* Smooth transition */
+            }
+            .social-icons a:hover {
+            color: #007bff; /* Change color on hover */
+            }
+         </style>
+         <div class="our-team">
+            <h2> Our Team</h2>
+            <p> Please Checkout our Hardworking Team. </p>
+            <div class="team-flexbox">
+               <div class="team-members">
+                  <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*gvNJefrW_2FTvRyjfyHHKQ.jpeg">
+                  <div class="member-details">
+                     <div class="member-name">Rubin</div>
+                     <div class="badge">Founder</div>
+                     <div class="badge">Developer</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                  </div>
+               </div>
+               <div class="team-members">
+                  <img src="https://cdn-sd.pages.dev/img/sahil.png">
+                  <div class="member-details">
+                     <div class="member-name">Mizo</div>
+                     <div class="badge">Admin</div>
+                     <div class="badge">Manager</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+               </div>
+               <div class="team-members">
+                  <img src="https://cdn-sd.pages.dev/img/sahil.png">
+                  <div class="member-details">
+                     <div class="member-name">NobOdy</div>
+                     <div class="badge">nOBODY</div>
+                     <div class="badge">Nobody</div>
+                  </div>
+                  <div class="social-icons">
+                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  </div>
+               </div>
+               <!-- Add more team members here -->
+            </div>
+            <P> You can also join our team. Join our Discord server and apply for staff program !</P>
+         </div>
+         <div id="space-gap"></div>
+         <div class="join-us">
+            <h2>Join us</h2>
+            <p> We are the best coding & hacking community. We've a <a href="https://discord.gg/hackz"> Discord server! </a>Join there and be a part of our community now! </p>
+         </div>
+         <div id="space-gap"></div>
+         <style>
+            /* Footer styles */
+            .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .footer p {
+            margin: 0;
+            }
+            .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out; /* Smooth transition for link color */
+            }
+            .footer a:hover {
+            color: #ffc107; /* Change color on hover */
+            }
+            /* Heart animation */
+            .heart {  
+            display: inline-block;
+            animation: beat 1s infinite;
+            transform-origin: center;
+            }
+            @keyframes beat {
+            0% { transform: scale(1); }     
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+            }
+         </style>
+         </head>
+         <body>
+            <footer class="footer">
+               <p>&copy; 2024 Team Hackz All rights reserved. Made with <span class="heart">&hearts;</span> by <strong>Rubin</strong>.</p>
+            </footer>
+     
+      </div>
+      
+
+      <!-- ZERO SECTION DIV-->
+   </body>
+</html>
