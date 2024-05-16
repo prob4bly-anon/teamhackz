@@ -1,0 +1,131 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    /* Vertically center items */
+    justify-content: space-between;
+    /* Distribute items evenly along the navbar */
+    padding: 10px 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* Moved font-family to .navbar */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#logo-text {
+    color: #ffffff;
+    /* Changed text color to white */
+    margin-left: 10px;
+    /* Added margin to separate logo and text */
+}
+
+.nav-links {
+    opacity: 0.9;
+    font-size: 1.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* Center the nav links horizontally */
+}
+
+.nav-links li {
+    margin-right: 55px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+#dash-link a {
+    color: #fff;
+    /* Set default text color */
+    text-decoration: none;
+    /* Remove default underline */
+    transition: color 0.3s;
+    /* Smooth transition for color */
+}
+
+#dash-link a:hover {
+    color: yellow;
+    /* Change text color to yellow on hover */
+    text-decoration: underline;
+    /* Add underline on hover */
+    animation: wave 1s infinite;
+    /* Apply wavy animation */
+}
+
+@keyframes wave {
+    0% {
+        text-shadow: 0 0 1px green;
+    }
+
+    50% {
+        text-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        text-shadow: 0 0 1px blue;
+    }
+}
+/* css stylings for mobile devices. */
+
+
+.hamburger-menu {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 5;
+    }
+    .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0.9;
+    }
+    .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8B4513; /* Brown color without transparency */
+    z-index: 4; /* Ensure it appears above other content */
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    }
+    .nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    }
+    .nav-menu li {
+    padding: 15px;
+    text-align: center;
+    }
+    .nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    }
