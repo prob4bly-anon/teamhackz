@@ -3,6 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/static/chunks/style/navbar.css">
       <title>Team Hackz</title>
       <style>
          body {
@@ -32,51 +33,6 @@
          .brand-text {
          font-size: 18px;
          margin-left: 10px;
-         }
-         .hamburger-menu {
-         width: 30px;
-         height: 20px;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         cursor: pointer;
-         z-index: 5;
-         }
-         .bar {
-         width: 100%;
-         height: 3px;
-         background-color: white;
-         transition: transform 0.3s, opacity 0.3s;
-         opacity: 0.9;
-         }
-         .nav-menu {
-         position: fixed;
-         top: 0;
-         right: 0;
-         width: 100%;
-         height: 100%;
-         background-color: #8B4513; /* Brown color without transparency */
-         z-index: 4; /* Ensure it appears above other content */
-         transform: translateX(100%);
-         transition: transform 0.3s;
-         }
-         .nav-menu ul {
-         list-style-type: none;
-         padding: 0;
-         margin: 0;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         height: 100%;
-         }
-         .nav-menu li {
-         padding: 15px;
-         text-align: center;
-         }
-         .nav-menu a {
-         color: #fff;
-         text-decoration: none;
-         font-size: 20px;
          }
          .hero-section {
          padding: 10px 15px;
@@ -187,17 +143,19 @@
    <body>
       <div class="container">
          <div class="brand">
-            <svg fill="#e1e10e" width="22" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-               <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+            <svg fill="#e1e10e" width="22" height="19"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+               <path
+                  d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
             </svg>
             <span class="brand-text">TEAMHACKZ.ORG</span>
          </div>
          <nav class="nav-menu">
             <ul>
-               <li><a href="#">Home</a></li>
-               <li><a href="#">About</a></li>
+               <li><a href="/">Home</a></li>
+               <li><a href="/about">About</a></li>
                <li><a href="#services-section">Services</a></li>
-               <li><a href="#">Contact</a></li>
+               <li><a href="/contact">Contact</a></li>
             </ul>
          </nav>
          <div class="hamburger-menu" onclick="toggleMenu()">
@@ -212,27 +170,37 @@
          </div>
          <div class="content-container">
             <div class="description">
-               Team Hackz: Elevating Ethical Hacking, Coding Mastery, and Creative Design.<br><br>
-               Join us on a transformative journey into cybersecurity, software development, and digital artistry.<br><br>
-               Discover the intricacies of ethical hacking; integrity and responsibility paramount. Explore coding, mastering languages, and algorithms for innovative solutions.<br><br>
-               Delve into creative design; imagination meets technical skill, crafting visually stunning designs.<br><br>
-               Our community thrives on collaboration, offering affordable services and tools for digital success.<br><br>
-               Let's harness technology and creativity for a positive global impact.
+               Team Hackz: Elevating Ethical Hacking, Coding Mastery, and
+               Creative Design.<br><br>
+               Join us on a transformative journey into cybersecurity, software
+               development, and digital artistry.<br><br>
+               Discover the intricacies of ethical hacking; integrity and
+               responsibility paramount. Explore coding, mastering languages,
+               and algorithms for innovative solutions.<br><br>
+               Delve into creative design; imagination meets technical skill,
+               crafting visually stunning designs.<br><br>
+               Our community thrives on collaboration, offering affordable
+               services and tools for digital success.<br><br>
+               Let's harness technology and creativity for a positive global
+               impact.
             </div>
          </div>
          <div class="image">
-            <img src="https://i.ibb.co/Sn18G7S/hackz-blue-png.jpg" alt="Team Hackz Image">
+            <img src="https://i.ibb.co/Sn18G7S/hackz-blue-png.jpg"
+               alt="Team Hackz Image">
          </div>
          <div class="buttons">
-            <button class="button button-primary" id="contact-button">Discord</button>
+            <button class="button button-primary"
+               id="contact-button">Discord</button>
             <a href="/dashboard">
-            <button class="button button-secondary" id="dashboard-button">Dashboard</button> </a>
+               <button class="button button-secondary"
+                  id="dashboard-button">Dashboard</button> </a>
          </div>
       </div>
       <div id="space-gap"></div>
       <div id="space-gap"></div>
       <div class="zero-section">
-         <div id = "services-section">
+         <div id="services-section">
             <div class="header-text-2">
                <p>Our Services</p>
             </div>
@@ -313,27 +281,33 @@
             <div class="flex-container">
                <div class="flex-item">
                   <h2>Ethical Hacking</h2>
-                  <p>Learn the skills needed to secure networks and protect against cyber threats.</p>
+                  <p>Learn the skills needed to secure networks and protect
+                     against cyber threats.</p>
                </div>
                <div class="flex-item">
                   <h2>GFX Designing</h2>
-                  <p>Create stunning graphics and visual designs for various purposes.</p>
+                  <p>Create stunning graphics and visual designs for various
+                     purposes.</p>
                </div>
                <div class="flex-item">
                   <h2>Bot Developing/Software Dev</h2>
-                  <p>Build automated bots and software applications to streamline processes.</p>
+                  <p>Build automated bots and software applications to
+                     streamline processes.</p>
                </div>
                <div class="flex-item">
                   <h2>Web Development</h2>
-                  <p>Design and develop websites with the latest technologies and frameworks.</p>
+                  <p>Design and develop websites with the latest technologies
+                     and frameworks.</p>
                </div>
                <div class="flex-item">
                   <h2>Game Hacking</h2>
-                  <p>Explore the world of game modification and customization.</p>
+                  <p>Explore the world of game modification and
+                     customization.</p>
                </div>
                <div class="flex-item">
                   <h2>Premium Tools</h2>
-                  <p>Access a range of premium software tools for various purposes.</p>
+                  <p>Access a range of premium software tools for various
+                     purposes.</p>
                </div>
             </div>
          </div>
@@ -428,16 +402,20 @@
             <p> Please Checkout our Hardworking Team. </p>
             <div class="team-flexbox">
                <div class="team-members">
-                  <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*gvNJefrW_2FTvRyjfyHHKQ.jpeg">
+                  <img
+                     src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*gvNJefrW_2FTvRyjfyHHKQ.jpeg">
                   <div class="member-details">
                      <div class="member-name">Rubin</div>
                      <div class="badge">Founder</div>
                      <div class="badge">Developer</div>
                   </div>
                   <div class="social-icons">
-                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-youtube"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-github"></i></a>
                   </div>
                </div>
                <div class="team-members">
@@ -448,9 +426,12 @@
                      <div class="badge">Manager</div>
                   </div>
                   <div class="social-icons">
-                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-linkedin"></i></a>
                   </div>
                </div>
                <div class="team-members">
@@ -461,19 +442,25 @@
                      <div class="badge">NobOdy</div>
                   </div>
                   <div class="social-icons">
-                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                     <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-instagram"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-twitter"></i></a>
+                     <a href="#" target="_blank"><i
+                           class="fab fa-linkedin"></i></a>
                   </div>
                </div>
                <!-- Add more team members here -->
             </div>
-            <P> You can also join our team. Join our Discord server and apply for staff program !</P>
+            <p> You can also join our team. Join our Discord server and apply
+               for staff program !</p>
          </div>
          <div id="space-gap"></div>
          <div class="join-us">
             <h2>Join us</h2>
-            <p> We are the best coding & hacking community. We've a <a href="https://discord.gg/hackz"> Discord server! </a>Join there and be a part of our community now! </p>
+            <p> We are the best coding & hacking community. We've a <a
+                  href="https://discord.gg/hackz"> Discord server! </a>Join
+               there and be a part of our community now! </p>
          </div>
          <div id="space-gap"></div>
          <style>
@@ -512,11 +499,12 @@
             100% { transform: scale(1); }
             }
          </style>
-         </head>
-         <body>
-            <footer class="footer">
-               <p>&copy; 2024 Team Hackz All rights reserved. Made with <span class="heart">&hearts;</span> by <strong>Rubin</strong>.</p>
-            </footer>
+      </head>
+      <body>
+         <footer class="footer">
+            <p>&copy; 2024 Team Hackz All rights reserved. Made with <span
+                  class="heart">&hearts;</span> by <strong>Rubin</strong>.</p>
+         </footer>
       </div>
       <!-- ZERO SECTION DIV-->
       <script>

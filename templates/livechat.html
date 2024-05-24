@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Terminal</title>
+    <link rel="stylesheet" href="/static/chunks/style/hacker.css">
+    <style>
+        body {
+            background-color: #2e2e2e;
+            color: #f0f0f0;
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-container {
+            padding: 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #333;
+        }
+
+        .chat-header .title {
+            font-size: 1.5em;
+        }
+
+        .chat-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #2e2e2e;
+        }
+
+        .chat-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .chat-box:hover .actions {
+            display: block;
+        }
+
+        .chat-box .message-content {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .chat-box .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-box .text {
+            flex: 1;
+        }
+
+        .chat-box .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-box .header .display-name {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .chat-box .header .timestamp {
+            color: #888;
+            font-size: 0.8em;
+        }
+
+        .chat-box .actions {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .chat-box .actions .action-button {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .chat-input-container {
+            position: relative;
+            height: 50px;
+            background-color: #1a1a1a;
+            border-top: 2px solid #333;
+        }
+
+        .chat-input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+
+            .chat-header,
+            .chat-input {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .chat-input button {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="title">Terminal Chat</div>
+            <div class="username">Logged in as:
+                <strong>{{session['username']}}</strong>
+            </div>
+        </div>
+        <div class="chat-content" id="chat-content">
+
+        </div>
+        <div class="chat-input">
+            <input type="text" id='stdin' placeholder="Type a message...">
+            <button type="button" onclick="javascript:sendMsg();scrollToBottom();">Send</button>
+        </div>
+    </div>
+    <script src="/static/chunks/scripts/socketio.min.js"></script>
+    <script>
+        /*
+        TODO:
+            Implement pagination for older messages when scrolled upward;
+            Implement load some messages when the chat is loaded;
+            Implement action(s) in action button;
+            Implement multi-line message support;
+            Add timestamp for messages on server-side, not client-side;
+            Fix overflow in `.chat-box .text` for messages that are too long;
+        */
+        const chatContent = document.getElementById('chat-content')
+        const socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('ready', function (data) {
+            console.log('User has connected!', data['username']);
+        });
+
+        socket.on('messageReceive', function (data) {
+            const messageBox = createMessageBox(data.message, data.username, formatDate(new Date()));
+            chatContent.appendChild(messageBox);
+            // Render Messages
+        });
+        
+        document.getElementById("stdin").addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                sendMsg();
+                scrollToBottom();
+            }
+        });
+
+        function formatDate(date) {
+            const months = [
+                "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+            ];
+            const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+            const hours = date.getHours() % 12 || 12;
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const formattedDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} at ${hours}:${minutes} ${ampm}`;
+            return formattedDate;
+        }
+
+        function sendMsg() {
+            var msg = document.getElementById('stdin');
+            if (msg.value == '') return;
+            socket.emit('message', { 'text': msg.value, 'username': `{{session['username']}}` });
+            msg.value = '';
+        }
+
+        function scrollToBottom() {
+            chatContent.scrollTop = chatContent.scrollHeight + 5;
+        }
+
+        chatContent.addEventListener('scroll', () => {
+            if (chatContent.scrollTop === 0) {
+                //loadMoreMessages();
+            }
+        });
+
+        function createMessageBox(text, user, timestamp) {
+            const chatBox = document.createElement('div');
+            chatBox.className = 'chat-box';
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            const avatar = document.createElement('img');
+            avatar.src = `{{session['avatar_url']}}`;
+            avatar.alt = `${user}`
+            avatar.className = 'avatar';
+            const textContainer = document.createElement('div');
+            textContainer.className = 'text';
+            const header = document.createElement('div');
+            header.className = 'header';
+            const displayNameElem = document.createElement('div');
+            displayNameElem.className = 'display-name';
+            displayNameElem.textContent = `{{session['username']}}`;
+            const timestampElem = document.createElement('div');
+            timestampElem.className = 'timestamp';
+            timestampElem.textContent = timestamp;
+            header.appendChild(displayNameElem);
+            header.appendChild(timestampElem);
+            textContainer.appendChild(header);
+            textContainer.appendChild(document.createTextNode(text));
+            messageContent.appendChild(avatar);
+            messageContent.appendChild(textContainer);
+            const actions = document.createElement('div');
+            actions.className = 'actions';
+            const editButton = document.createElement('button');
+            editButton.className = 'action-button';
+            editButton.textContent = 'actions... mmm..?';
+            actions.appendChild(editButton);
+            chatBox.appendChild(messageContent);
+            chatBox.appendChild(actions);
+            return chatBox;
+        }
+    </script>
+</body>
+</html>
