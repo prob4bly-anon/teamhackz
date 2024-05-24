@@ -39,7 +39,9 @@
                         aria-expanded="false">MENU<span
                            class="caret"></span></a>
                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Ooh a link</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{url_for('livechat.chat')}}">Chat</a></li>
+                        <li><a href="{{url_for('index.about')}}">About</a></li>
                         <li><a href="#">Two links?! Oh boy</a></li>
                         <li><a href="#">Now you're being ridiculous</a></li>
                         <li class="divider"></li>
@@ -53,7 +55,7 @@
                         target="_blank">H4X0R5 0NlY</a>
                   </li>
                   <li>
-                     <a href="/dashboard/profile"
+                     <a href="{{url_for('dash.user_profile')}}"
                         target="/dashboard/profile">PROFILE</a>
                   </li>
                </ul>

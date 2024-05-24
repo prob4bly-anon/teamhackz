@@ -4,7 +4,7 @@ dash_bp = Blueprint('dash', __name__)
 
 @dash_bp.route('/dashboard')
 def index():
-   if session:
+   if 'username' in session:
       pass
    else:
       return redirect('/login')
@@ -17,8 +17,7 @@ def index():
 
 @dash_bp.route('/dashboard/profile')
 def user_profile():
-   if session:
-      username = session.get('username')
-      return "success"
+   if 'username' in session:
+      return {'message': "success", 'data': {'username': session['username'],'avatar_url': session['avatar_url']}}, 200
    else:
-      return "404 Unauthorized ! | 1337 Lumino Haxxor"
+      return {'message': "404 Unauthorized ! | 1337 Lumino Haxxor"}, 404

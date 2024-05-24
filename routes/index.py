@@ -1,4 +1,3 @@
-# index.py
 from flask import Blueprint, render_template, request
 import re
 
@@ -11,6 +10,14 @@ def index():
         return render_template('mobile/index.html')
     else:
         return render_template('pc/index.html')
+    
+@index_bp.route('/about')
+def about():
+    return render_template('/about.html')
+    
+@index_bp.route('/contact')
+def contact():
+    return render_template('/contact.html')
 
 def is_mobile(user_agent):
     # Regular expression to match common mobile user agents
