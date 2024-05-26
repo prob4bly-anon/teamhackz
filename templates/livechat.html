@@ -213,7 +213,7 @@
         function sendMsg() {
             var msg = document.getElementById('stdin');
             if (msg.value == '') return;
-            socket.emit('message', { 'text': msg.value, 'username': `{{session['username']}}` });
+            socket.emit('message', { 'text': msg.value, 'username': `{{username}}` });
             msg.value = '';
         }
 
@@ -242,7 +242,7 @@
             header.className = 'header';
             const displayNameElem = document.createElement('div');
             displayNameElem.className = 'display-name';
-            displayNameElem.textContent = `{{session['username']}}`;
+            displayNameElem.textContent = `${user}`;
             const timestampElem = document.createElement('div');
             timestampElem.className = 'timestamp';
             timestampElem.textContent = timestamp;

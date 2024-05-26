@@ -38,7 +38,7 @@ def connect():
 
 @socketio.on('message')
 def handle_message(data):
-    emit('messageReceive', {'username': session.get('username'), 'message': data['text']}, broadcast=True)
+    emit('messageReceive', {'username': data['username'], 'message': data['text']}, broadcast=True)
 
 socketio.run(app, port=8080, 
         debug=True)
